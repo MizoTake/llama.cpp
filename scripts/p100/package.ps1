@@ -49,8 +49,7 @@ foreach ($directory in @('conversion', 'gguf-py', 'requirements')) {
     }
 }
 foreach ($name in @('run-llama-p100.ps1', 'start-unsloth-p100.ps1', 'configure_unsloth.py', 'restore_unsloth.py')) { Copy-Item -LiteralPath (Join-Path $PSScriptRoot $name) -Destination $destination_path }
-Copy-Item -LiteralPath (Join-Path $source_dir 'docs\p100\README.md') -Destination $destination_path
-Copy-Item -LiteralPath (Join-Path $source_dir 'docs\p100\validation-2026-10-04.json') -Destination $destination_path
+foreach ($file in Get-ChildItem -LiteralPath (Join-Path $source_dir 'docs\p100') -File) { Copy-Item -LiteralPath $file.FullName -Destination $destination_path }
 $license_dir = Join-Path $destination_path 'licenses'
 New-Item -ItemType Directory -Path $license_dir | Out-Null
 Copy-Item -LiteralPath (Join-Path $cuda_root 'EULA.txt') -Destination (Join-Path $license_dir 'CUDA-EULA.txt')

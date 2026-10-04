@@ -102,3 +102,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\p100\run-llama-p10
 upstream更新時は通常のGit mergeで取り込み、この手順で再ビルドします。CTestに加え、`llama-server --list-devices`、GPU演算テスト、使うモデルのbench、HF変換・量子化、Unslothでのモデル読み込みを確認します。新しいアプリやCUDAへの切り替えだけでP100対応が維持されるとは判断しません。
 
 ベンチマークはQ4_K_M、F16 KV、プロンプト128、生成32、3回、6スレッド、batch 512、ubatch 128で測定しました。9BはP100:RTX 4070 = 3:2 / Flash Attention onで生成44.47 tokens/s、27Bは同じ配分 / autoで14.98 tokens/sです。長いコンテキストや別モデルの最適比率は未検証です。
+
+[追加測定の記録](tuning-2026-10-04.md)ではスレッド数を比較しました。持続負荷でP100の温度制限が出たため、GPU配分・バッチの最適化は冷却条件を確認してから再測定します。

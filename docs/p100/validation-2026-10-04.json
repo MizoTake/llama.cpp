@@ -1,0 +1,155 @@
+{
+  "tested_at": "2026-10-04T11:26:02+09:00",
+  "source_commit": "11fe02151f79c41d0d4af7da708755d73b9c0da6",
+  "scope": "Initial local build only. Later revisions require new validation.",
+  "management_recipe_validation": {
+    "ctest_passed": 35,
+    "python_jinja_test_included": true,
+    "configure_unsloth_dry_run": "PASS; physical GPUs [0,1]; tensor split 2,3; settings not saved",
+    "packaged_launcher_devices": "PASS; CUDA0 P100, CUDA1 RTX4070",
+    "package_file_sha256": "PASS",
+    "zip_crc": "PASS; 160 entries",
+    "package_overwrite_guard": "PASS",
+    "unsupported_cuda_guard": "PASS; CUDA 12.8 rejected before configure",
+    "syntax_encoding_and_personal_paths": "PASS",
+    "python_type_check": "Not run; ty is not installed"
+  },
+  "cpu": "AMD Ryzen 5 7600 (6 cores / 12 logical processors)",
+  "os": "Windows 11 Pro x64 10.0.26200",
+  "compiler": "MSVC 19.44.35228.0",
+  "cuda": "12.9.86",
+  "gpu_architectures": [
+    "60-real",
+    "89-real"
+  ],
+  "cpu_native": true,
+  "cpu_avx512": true,
+  "lto": true,
+  "flash_attention_types": "all",
+  "placement": "layer split; P100:RTX4070 = 3:2",
+  "ctest_passed": 34,
+  "gpu_matmul_cpu_comparison_passed": {
+    "RTX4070": 26,
+    "P100": 26
+  },
+  "gpu_flash_attention_cpu_comparison_passed": {
+    "RTX4070": 4,
+    "P100": 4
+  },
+  "conversion": "Generated GPT2 HF fixture -> F16 GGUF; 27.5 MB; PASS",
+  "quantization": "F16 fixture -> Q4_K_M; 10.74 MiB; PASS",
+  "unsloth_integration": "Installed backend loaded Qwen3.5 9B using both GPUs and replied OK; PASS",
+  "unsloth_gui_acceptance": "Not tested; existing desktop process left running",
+  "known_test_build_failure": "test-batch-alloc.cpp:785: MSVC C2131. Not included in the 34 passing tests.",
+  "benchmark_conditions": {
+    "repetitions": 3,
+    "n_threads": 6,
+    "n_batch": 512,
+    "n_ubatch": 128,
+    "kv_types": "f16",
+    "split_mode": "layer",
+    "gpu_order": "P100,RTX4070"
+  },
+  "benchmarks": [
+    {
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "model_type": "qwen35 9B Q4_K - Medium",
+      "tensor_split": "2.00/1.00",
+      "flash_attention": 0,
+      "n_prompt": 128,
+      "n_gen": 0,
+      "avg_tokens_per_second": 517.202177,
+      "stddev_tokens_per_second": 58.183314
+    },
+    {
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "model_type": "qwen35 9B Q4_K - Medium",
+      "tensor_split": "2.00/1.00",
+      "flash_attention": 0,
+      "n_prompt": 0,
+      "n_gen": 32,
+      "avg_tokens_per_second": 42.440652,
+      "stddev_tokens_per_second": 0.199795
+    },
+    {
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "model_type": "qwen35 9B Q4_K - Medium",
+      "tensor_split": "2.00/1.00",
+      "flash_attention": 1,
+      "n_prompt": 128,
+      "n_gen": 0,
+      "avg_tokens_per_second": 547.712851,
+      "stddev_tokens_per_second": 4.123018
+    },
+    {
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "model_type": "qwen35 9B Q4_K - Medium",
+      "tensor_split": "2.00/1.00",
+      "flash_attention": 1,
+      "n_prompt": 0,
+      "n_gen": 32,
+      "avg_tokens_per_second": 42.858541,
+      "stddev_tokens_per_second": 0.154978
+    },
+    {
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "model_type": "qwen35 9B Q4_K - Medium",
+      "tensor_split": "3.00/2.00",
+      "flash_attention": 0,
+      "n_prompt": 128,
+      "n_gen": 0,
+      "avg_tokens_per_second": 594.424484,
+      "stddev_tokens_per_second": 2.918735
+    },
+    {
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "model_type": "qwen35 9B Q4_K - Medium",
+      "tensor_split": "3.00/2.00",
+      "flash_attention": 0,
+      "n_prompt": 0,
+      "n_gen": 32,
+      "avg_tokens_per_second": 44.282364,
+      "stddev_tokens_per_second": 0.165891
+    },
+    {
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "model_type": "qwen35 9B Q4_K - Medium",
+      "tensor_split": "3.00/2.00",
+      "flash_attention": 1,
+      "n_prompt": 128,
+      "n_gen": 0,
+      "avg_tokens_per_second": 593.556228,
+      "stddev_tokens_per_second": 2.886826
+    },
+    {
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "model_type": "qwen35 9B Q4_K - Medium",
+      "tensor_split": "3.00/2.00",
+      "flash_attention": 1,
+      "n_prompt": 0,
+      "n_gen": 32,
+      "avg_tokens_per_second": 44.474504,
+      "stddev_tokens_per_second": 0.074983
+    },
+    {
+      "model_file": "Qwen3.8-27B-Q4_K_M.gguf",
+      "model_type": "qwen35 27B Q4_K - Medium",
+      "tensor_split": "3.00/2.00",
+      "flash_attention": -1,
+      "n_prompt": 128,
+      "n_gen": 0,
+      "avg_tokens_per_second": 162.978535,
+      "stddev_tokens_per_second": 0.703077
+    },
+    {
+      "model_file": "Qwen3.8-27B-Q4_K_M.gguf",
+      "model_type": "qwen35 27B Q4_K - Medium",
+      "tensor_split": "3.00/2.00",
+      "flash_attention": -1,
+      "n_prompt": 0,
+      "n_gen": 32,
+      "avg_tokens_per_second": 14.984484,
+      "stddev_tokens_per_second": 0.017131
+    }
+  ]
+}

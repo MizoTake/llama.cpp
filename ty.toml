@@ -30,3 +30,13 @@ include = [
 [overrides.rules]
 unsupported-operator = "ignore"
 not-subscriptable = "ignore"
+
+[[overrides]]
+include = [
+    "./scripts/p100/configure_unsloth.py",
+    "./scripts/p100/restore_unsloth.py",
+]
+
+[overrides.rules]
+# Unsloth provides these modules in its desktop Python environment.
+unresolved-import = "ignore"

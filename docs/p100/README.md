@@ -2,6 +2,8 @@
 
 このforkでは、Windows x64 / Ryzen 5 7600 / Tesla P100 16GB / RTX 4070 12GB向けのビルドと起動設定を管理します。C++ソースやCUDAカーネルの変更はありません。
 
+今回の共通サービス・Unsloth 27B温度切替・DSHのlegacy整理と遅延確認は [運用記録](thermal-27b-routing-2026-10-10.md) を参照してください。P100優先の両GPU構成、高温時のRTX + CPU退避、区切りでの復帰、会話圧縮・共有メモリを管理します。DSHは `lmstudio` / `unslothdesktop` に統一し、各モデルの要約先を明示します。
+
 ## 最初のビルドで行ったこと
 
 基準のソースは `11fe02151f79c41d0d4af7da708755d73b9c0da6` です。既存のMSVC 19.44、CMake 4.1.2、Ninja、CUDA Toolkit 12.9.86、OpenSSL 3.6.0を使用しました。Python依存は追加せず、既存のUnsloth環境を使いました。

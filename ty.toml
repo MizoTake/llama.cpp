@@ -35,6 +35,10 @@ not-subscriptable = "ignore"
 include = [
     "./scripts/p100/configure_unsloth.py",
     "./scripts/p100/restore_unsloth.py",
+    "./scripts/p100/thermal_unsloth.py",
+    "./scripts/p100/context_unsloth.py",
+    "./scripts/p100/configure_unsloth_thermal.py",
+    "./scripts/p100/shared_memory.py",
 ]
 
 [overrides.rules]

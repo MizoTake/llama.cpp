@@ -1,0 +1,310 @@
+{
+  "date": "2026-10-10",
+  "tests": {
+    "total": 147,
+    "passed": 145,
+    "skipped": 2
+  },
+  "shared_api": "http://127.0.0.1:8877/v1",
+  "unsloth_fallback": {
+    "status": {
+      "model_identifier": "unsloth/Qwen3.8-27B-GGUF",
+      "gguf_variant": "UD-Q4_K_XL",
+      "context_length": 65536,
+      "gpu_ids": [
+        0
+      ],
+      "gpu_layers": 20,
+      "offloaded_layers": 20,
+      "offload_total_layers": 66,
+      "cache_type_kv": "f16",
+      "disable_vision": false,
+      "requested_n_batch": 512,
+      "requested_n_ubatch": 512
+    },
+    "answer": "42",
+    "finish": "stop",
+    "shared_memory": true
+  },
+  "unsloth_recovery": {
+    "verified": true,
+    "signal_source": "real GPU telemetry",
+    "status": {
+      "model_identifier": "unsloth/Qwen3.8-27B-GGUF",
+      "gguf_variant": "UD-Q4_K_XL",
+      "context_length": 65536,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "offloaded_layers": 66,
+      "offload_total_layers": 66,
+      "cache_type_kv": "f16",
+      "disable_vision": false
+    },
+    "observations": [
+      {
+        "elapsed_seconds": 0,
+        "temperature": 71,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 30,
+        "temperature": 70,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 60,
+        "temperature": 70,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 91,
+        "temperature": 70,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 121,
+        "temperature": 69,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 151,
+        "temperature": 69,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 181,
+        "temperature": 69,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 211,
+        "temperature": 68,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 241,
+        "temperature": 68,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 272,
+        "temperature": 68,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 302,
+        "temperature": 68,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 332,
+        "temperature": 67,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "loading": false
+      },
+      {
+        "elapsed_seconds": 362,
+        "temperature": 68,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": true,
+        "gpu_ids": null,
+        "gpu_layers": -1,
+        "loading": true
+      },
+      {
+        "elapsed_seconds": 392,
+        "temperature": 69,
+        "thermal_active": false,
+        "event": "matched",
+        "hot": false,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "loading": false
+      }
+    ],
+    "answer": "42",
+    "finish": "stop"
+  },
+  "dsh": {
+    "provider": "lmstudio",
+    "model": "qwen/qwen3.8-27b",
+    "summary_model": "qwen/qwen3.8-27b",
+    "response_model": "Qwen3.8-27B-Q4_K_M.gguf",
+    "answer": "42",
+    "requests": [
+      {
+        "model": "qwen/qwen3.8-27b",
+        "maxTokens": 128
+      }
+    ],
+    "configured_max_tokens": 49152,
+    "full_output_budget_tested": false
+  },
+  "settings_audit": {
+    "sessions": 4,
+    "all_pending_models_valid": true,
+    "background_summaries": true,
+    "memory_backend": "memorix",
+    "helpers_match_source": true
+  },
+  "final_service": {
+    "status": "matched-fallback",
+    "hot": true,
+    "active_chats": 0,
+    "api_port": 8877,
+    "lmstudio_model": "qwen/qwen3.8-27b",
+    "native_model": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.8-27B-GGUF\\Qwen3.8-27B-Q4_K_M.gguf",
+    "devices": "CUDA0"
+  },
+  "followup": {
+    "legacy_provider_removed": true,
+    "providers": [
+      "lmstudio",
+      "unslothdesktop"
+    ],
+    "summary_target": "LM Studio always 27B, Unsloth per-model",
+    "tests": {
+      "python_total": 150,
+      "python_passed": 148,
+      "python_skipped": 2,
+      "node_passed": 3,
+      "committed_python_passed": 115
+    },
+    "dsh_native27_smoke": {
+      "provider": "lmstudio",
+      "model": "qwen/qwen3.8-27b",
+      "first_chunk_ms": 32550,
+      "elapsed_ms": 49587,
+      "answer": "42",
+      "finish": "stop",
+      "native_file": "Qwen3.8-27B-Q4_K_M.gguf",
+      "configured_max_tokens": 49152,
+      "tested_max_tokens": 128
+    },
+    "observed_slow_turn": {
+      "first_chunk_after_header_ms": 107316,
+      "aborted_after_ms": 356736
+    },
+    "environment": {
+      "primary_gpu": "Tesla P100 16GB",
+      "fallback_gpu": "RTX 4070 12GB",
+      "profile": "fallback RTX + CPU",
+      "other_python_p100_mib": 16240
+    },
+    "cold_recovery_retested": false,
+    "installed_compaction_regression": {
+      "prior_models": [
+        "qwen/qwen3.5-9b",
+        "qwen/qwen3.8-27b"
+      ],
+      "result_summary_model": "qwen/qwen3.8-27b",
+      "generation_mocked": true
+    },
+    "final_installed_smoke": {
+      "http_status": 200,
+      "model": "qwen/qwen3.8-27b",
+      "native_file": "Qwen3.8-27B-Q4_K_M.gguf",
+      "first_chunk_ms": 4705,
+      "elapsed_ms": 19916,
+      "answer": "42",
+      "finish": "stop"
+    },
+    "background_summary_cleanup_wait_checked": true,
+    "helper_update_skips_cuda_reinitialization": true,
+    "transient_empty_response": {
+      "count": 1,
+      "initial_http_status_not_recorded": true,
+      "cause_confirmed": false
+    }
+  }
+}

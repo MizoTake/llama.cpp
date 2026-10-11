@@ -113,6 +113,17 @@ class ThermalPolicyTests(unittest.TestCase):
 
 
 class SwitchingTests(unittest.TestCase):
+    def test_ram_cache_is_retained_when_layers_move_to_cpu(self):
+        original = copy.deepcopy(NORMAL)
+        original.update(cache_ram=8192, ctx_checkpoints=32)
+        original["llama_extra_args"].append("--cache-idle-slots")
+        result = fallback_override(original, 0, 512, gpu_layers=20)
+        self.assertEqual(result["cache_ram"], 8192)
+        self.assertEqual(result["ctx_checkpoints"], 32)
+        self.assertIn("--cache-idle-slots", result["llama_extra_args"])
+        self.assertEqual(result["gpu_ids"], [0])
+        self.assertEqual(result["gpu_layers"], 20)
+
     def test_large_model_fallback_preserves_cpu_layers_and_strips_conflicting_flags(self):
         original = copy.deepcopy(NORMAL)
         original["llama_extra_args"] += ["--gpu-layers=1024", "--fit", "on"]

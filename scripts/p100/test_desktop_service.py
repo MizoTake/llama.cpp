@@ -106,6 +106,33 @@ class DesktopTests(unittest.TestCase):
             backend.bridge()
         self.assertIsNone(backend.engine)
 
+    def test_resident_unsloth_with_disabled_ram_cache_gets_the_saved_profile(self):
+        import json
+        from unittest.mock import Mock
+
+        root = Path(self.temporary.name)
+        (root / "state.json").write_text('{"managed": {}, "conflicts": []}', encoding="utf-8")
+        thermal = root / "config.json"
+        thermal.write_text(json.dumps({"profiles": {"9b": {}}}), encoding="utf-8")
+        self.controller.config.update(unsloth_thermal_config=str(thermal), unsloth_loads={"9b": {"model_path": "org/9b", "model_file": "C:/models/9b.gguf", "gguf_variant": "Q4_K_M"}})
+        profile = {"gpu_ids": [1, 0], "gpu_layers": 1024, "cache_ram": 8192, "ctx_checkpoints": 32}
+        store = Mock()
+        store.resolve.return_value = ("9b", profile)
+        store.make_load_kwargs.side_effect = lambda config: config
+        status = {"model_identifier": "org/9b", "gguf_variant": "Q4_K_M", "gpu_ids": [1, 0], "gpu_layers": 1024, "requested_cache_ram": 0, "requested_ctx_checkpoints": 0}
+        api = Mock()
+        api.request.side_effect = [status, {}, {**status, "requested_cache_ram": 8192, "requested_ctx_checkpoints": 32}]
+        with patch.object(self.controller, "sample"), patch("desktop_service.StudioStore", return_value=store):
+            self.controller.prepare_unsloth(api, {"model": "9b"})
+        self.assertEqual(api.request.call_args_list[1].args[0], "/api/inference/load")
+        payload = api.request.call_args_list[1].args[1]
+        self.assertEqual(payload["cache_ram"], 8192)
+        self.assertEqual(payload["ctx_checkpoints"], 32)
+        self.assertFalse(payload["force_cancel_active"])
+        api.request.side_effect = [status, {}, status]
+        with patch.object(self.controller, "sample"), patch("desktop_service.StudioStore", return_value=store), self.assertRaisesRegex(RuntimeError, "RAM cache"):
+            self.controller.prepare_unsloth(api, {"model": "9b"})
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
@@ -154,6 +181,18 @@ class DesktopTests(unittest.TestCase):
         self.controller.policy.hot = True
         self.assertEqual(self.controller.switch(), "waiting-lmstudio")
         self.assertNotIn(("reload", True), self.backend.calls)
+
+    def test_correct_gpu_with_disabled_ram_cache_is_reloaded_at_idle(self):
+        self.controller.config["ram_cache_mib"] = 8192
+        self.backend.engine["cache_ram_mib"] = 0
+        self.assertEqual(self.controller.switch(), "switched-primary")
+        self.assertIn(("reload", False), self.backend.calls)
+
+    def test_ram_cache_update_does_not_interrupt_native_generation(self):
+        self.controller.config["ram_cache_mib"] = 8192
+        self.backend.engine.update(cache_ram_mib=0, idle=False)
+        self.assertEqual(self.controller.switch(), "waiting-lmstudio")
+        self.assertNotIn(("reload", False), self.backend.calls)
 
     def test_fallback_context_is_lower_than_normal_context(self):
         self.controller.config.update(context_limit=131072, fallback_context_limit=65536)

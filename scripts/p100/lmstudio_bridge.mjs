@@ -45,13 +45,15 @@ function configured(normal, identifier) {
     Object.assign(config, input.hot ? profile.fallback_load : profile.primary_load);
     config.llamaCppArgumentsOverride = {
         enabled: true, excludeAllConfig: false,
-        disabledParameters: ["--device", "--tensor-split", "--split-mode", "--main-gpu", "--fit"],
+        disabledParameters: ["--device", "--tensor-split", "--split-mode", "--main-gpu", "--fit", "--cache-ram", "-cram", "--cache-idle-slots", "--no-cache-idle-slots"],
         overrideParameters: [
             { key: "--device", value: input.devices },
             { key: "--tensor-split", value: input.hot ? "1" : "3,2" },
             { key: "--split-mode", value: input.hot ? "none" : "layer" },
             { key: "--main-gpu", value: "0" },
             { key: "--fit", value: "off" },
+            { key: "--cache-ram", value: String(input.ramCacheMiB ?? 8192) },
+            { key: "--cache-idle-slots", value: "" },
         ],
     };
     return config;
@@ -115,7 +117,7 @@ try {
     const slotsResponse = await fetch("http://127.0.0.1:" + port + "/slots", { headers: { Authorization: "Bearer " + key }, signal: AbortSignal.timeout(5000) });
     if (!slotsResponse.ok) throw new Error("Cannot check native engine slots");
     const slots = await slotsResponse.json();
-    process.stdout.write(JSON.stringify({ port: +port, key, pid: engine.ProcessId, native_model: argument(engine.CommandLine, "--model"), devices: argument(engine.CommandLine, "--device"), context: await model.getContextLength(), identifier: model.identifier, modelKey: model.modelKey, idle: idle(model.identifier) && Array.isArray(slots) && slots.every(slot => !slot.is_processing) }) + "\n");
+    process.stdout.write(JSON.stringify({ port: +port, key, pid: engine.ProcessId, native_model: argument(engine.CommandLine, "--model"), devices: argument(engine.CommandLine, "--device"), cache_ram_mib: +(argument(engine.CommandLine, "--cache-ram") ?? argument(engine.CommandLine, "-cram") ?? 8192), context: await model.getContextLength(), identifier: model.identifier, modelKey: model.modelKey, idle: idle(model.identifier) && Array.isArray(slots) && slots.every(slot => !slot.is_processing) }) + "\n");
 } catch (error) {
     process.stdout.write(JSON.stringify({ error: error.message }) + "\n");
     process.exitCode = 1;

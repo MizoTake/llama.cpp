@@ -74,7 +74,7 @@ def install(root, lm_home, source, dry_run=False, update=False):
     config = {
         "port": 8877, "share_memory": True, "primary_uuid": primary[0].uuid,
         "primary_devices": ",".join(devices), "fallback_device": devices[1],
-        "return_temperature": 68, "stable_seconds": 120, "poll_seconds": 5,
+        "return_temperature": 68, "stable_seconds": 120, "poll_seconds": 5, "ram_cache_mib": 8192,
         "context_limit": 131072, "fallback_context_limit": 65536, "unsloth_url": "http://127.0.0.1:8888",
         "lmstudio": {"node": str(node), "sdk": str(sdk), "lms": str(lm_home / "bin/lms.exe"),
                      "runtime": str(runtime), "identifier": "qwen/qwen3.5-9b",

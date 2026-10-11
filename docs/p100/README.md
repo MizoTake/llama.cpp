@@ -4,6 +4,10 @@
 
 今回の共通サービス・Unsloth 27B温度切替・DSHのlegacy整理と遅延確認は [運用記録](thermal-27b-routing-2026-10-10.md) を参照してください。P100優先の両GPU構成、高温時のRTX + CPU退避、区切りでの復帰、会話圧縮・共有メモリを管理します。DSHは `lmstudio` / `unslothdesktop` に統一し、各モデルの要約先を明示します。
 
+2026-10-11に、両アプリの9B/27Bへ上限8 GiBの [RAMプロンプトキャッシュ](ram-cache-2026-10-11.md) を明示しました。RTX退避構成で別の会話を挟んで4,846トークンの入力へ戻る測定では4,842トークンを復元し、最初の出力までの時間が無効時より約89-94%短くなりました。LM Studioは元から初期値で有効で、UnslothはWindowsの全層GPU配置時に自動無効化される場合があります。新規入力の高速化は確認していません。測定条件、チェックポイントの負担、再適用方法はリンク先を参照してください。
+
+P100優先の通常構成でも、両アプリの9B/27BでRAM無効・有効を [追加比較](ram-cache-primary-2026-10-11.md) しています。通常のデバイス順、3:2配分、F16 KV、各モデルのコンテキストを維持し、温度境界に達した測定は採用しません。短い入力・各1回の観測として、RTXの長文測定とは分けて記録します。
+
 ## 最初のビルドで行ったこと
 
 基準のソースは `11fe02151f79c41d0d4af7da708755d73b9c0da6` です。既存のMSVC 19.44、CMake 4.1.2、Ninja、CUDA Toolkit 12.9.86、OpenSSL 3.6.0を使用しました。Python依存は追加せず、既存のUnsloth環境を使いました。
@@ -60,9 +64,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\p100\package.ps1 -
 
 `--dry-run` は変更予定を表示し、設定を保存しません。保存時はカスタムllama.cppパスとモデル設定を `~/.unsloth/studio/backups/llama-p100/` にバックアップしてから、インストール済みUnslothの設定APIを使って変更します。Unsloth更新で内部APIが変わった場合はスクリプトも確認してください。
 
-保存済みGGUF設定と、LM Studio/Hugging Faceキャッシュ内のトークナイザーを持つ言語GGUFを対象にします。既存の追加引数を保持し、split/Flash AttentionとGPU選択を更新します。SM 6.0/8.9のGPUを検出し、P100の番号を固定せずP100へ重み3、他GPUへ重み2を割り当てます。
+保存済みGGUF設定と、LM Studio/Hugging Faceキャッシュ内のトークナイザーを持つ言語GGUFを対象にします。Hugging FaceモデルはリポジトリIDと量子化形式の組み合わせでも保存し、Desktopのモデル選択から参照できるようにします。既存の追加引数のうち、このプリセットが管理するsplit/Flash Attention/KV型/batch以外は保持します。SM 6.0/8.9のGPUを検出し、P100の番号を固定せずP100を先頭にして重み3、他GPUへ重み2を割り当てます。
 
-このPCの通常の物理番号はRTX 4070が0、P100が1なので、保存される設定はGPU `[0,1]` と `--split-mode layer --tensor-split 2,3 --flash-attn auto` です。Tensor Parallelismは無効、GPUメモリーはAutoを使います。
+このPCの通常の物理番号はRTX 4070が0、P100が1なので、保存される設定はGPU `[1,0]` と `--split-mode layer --tensor-split 3,2 --flash-attn on` です。KVはF16、Tensor Parallelismは無効、GPUメモリーはManual、GPU layersは1024を保存します。1024は全レイヤーをGPUへ載せるための上限値です。VRAMに収まらないモデルやコンテキスト長は手動で調整します。
+
+batch/ubatchとコンテキスト長は保存値を保持します。未設定ならbatch/ubatchは512、コンテキスト長は8,192、同時応答数は1です。`--model "MODEL_ID"` で対象を選択でき、複数指定も可能です。`--batch-size`、`--ubatch-size`、`--context-length` は指定した項目だけを更新し、範囲外の値や見つからない対象ID、ubatchがbatchより大きい設定は保存前に拒否します。
 
 UnslothDesktopを終了して再起動してください。変換ツールの場所も環境変数で渡して起動する場合は、終了後に次を実行します。モデル側の保存設定は起動時の環境変数より優先されます。
 
@@ -78,7 +84,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\p100\start-unsloth
 
 ## 単独実行と変換
 
-単独起動スクリプトはP100をCUDA0に並べるため、同じ配分でも `3,2` になります。Unslothで使う物理番号順の `2,3` とは順序が異なります。
+単独起動スクリプトもP100をCUDA0に並べ、配分を `3,2` にします。Unslothは物理番号 `[1,0]` を使い、同じP100優先の配分を保存します。
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\p100\run-llama-p100.ps1 -BinaryDir "RUNTIME_DIRECTORY" -Tool server -m "MODEL.gguf" -c 8192 -ngl 99 -fa auto --host 127.0.0.1 --port 8081

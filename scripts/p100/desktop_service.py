@@ -51,6 +51,7 @@ class LmBackend:
         payload: dict = {**self.config["lmstudio"], "identifier": identifier, "action": action, "hot": hot,
                    "contextLimit": profile.get("fallback_context_limit" if hot else "context_limit", self.config.get("fallback_context_limit" if hot else "context_limit", 65536)),
                    "devices": self.config["fallback_device"] if hot else self.config["primary_devices"],
+                   "ramCacheMiB": self.config.get("ram_cache_mib", 8192),
                    "profiles": {key: str(ROOT / ("lmstudio-" + hashlib.sha256(key.encode()).hexdigest()[:16] + ".json")) for key in self.config["lmstudio"]["models"]}}
         result = subprocess.run([payload["node"], str(Path(__file__).with_name("lmstudio_bridge.mjs"))],
                                 input=json.dumps(payload), capture_output=True, text=True, encoding="utf-8", timeout=180, check=False,
@@ -190,7 +191,8 @@ class DesktopController:
             return "requested-model"
         limit_name = "fallback_context_limit" if self.policy.hot else "context_limit"
         limit = profile.get(limit_name, self.config.get(limit_name, 65536))
-        if engine.get("devices") == desired and engine["context"] <= limit:
+        cache_mib = self.config.get("ram_cache_mib", 8192)
+        if engine.get("devices") == desired and engine["context"] <= limit and engine.get("cache_ram_mib", 8192) == cache_mib:
             self.applied_hot = self.policy.hot
             return "matched-fallback" if self.policy.hot else "matched-primary"
         self.backend.bridge("reload", self.policy.hot)
@@ -290,13 +292,16 @@ class DesktopController:
         matches = status.get("model_identifier") in (spec["model_path"], spec["model_file"])
         matches = matches and (status.get("gguf_variant") == spec["gguf_variant"] or status.get("model_identifier") == spec["model_file"])
         matches = matches and all(status.get(field) == profile.get(field) for field in ("gpu_ids", "gpu_layers"))
+        cache_settings = ("cache_ram", "ctx_checkpoints")
+        matches = matches and all(profile.get(field) is None or status.get("requested_" + field) == profile[field] for field in cache_settings)
         if not matches:
             payload = store.make_load_kwargs(profile)
             payload.update(model_path=spec["model_path"], gguf_variant=spec["gguf_variant"], force_reload=True, force_cancel_active=False)
             api.request("/api/inference/load", payload)
             status = api.request("/api/inference/status")
-        if status.get("model_identifier") not in (spec["model_path"], spec["model_file"]) or status.get("gpu_ids") != profile["gpu_ids"] or status.get("gpu_layers") != profile["gpu_layers"]:
-            raise RuntimeError("Unsloth model identity or GPU placement did not match the requested profile")
+        cache_matches = all(profile.get(field) is None or status.get("requested_" + field) == profile[field] for field in cache_settings)
+        if status.get("model_identifier") not in (spec["model_path"], spec["model_file"]) or status.get("gpu_ids") != profile["gpu_ids"] or status.get("gpu_layers") != profile["gpu_layers"] or not cache_matches:
+            raise RuntimeError("Unsloth model identity, GPU placement or RAM cache did not match the requested profile")
         self.status = "unsloth-fallback" if self.policy.hot else "unsloth-primary"
 
 

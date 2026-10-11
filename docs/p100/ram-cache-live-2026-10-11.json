@@ -1,0 +1,370 @@
+{
+  "models": [
+    {
+      "requested_model": "unsloth/Qwen3.8-27B-GGUF",
+      "response_model": "unsloth/Qwen3.8-27B-GGUF",
+      "output": "42",
+      "finish_reason": "stop",
+      "elapsed_ms": 34702.13,
+      "app": {
+        "model_identifier": "unsloth/Qwen3.8-27B-GGUF",
+        "gpu_ids": [
+          0
+        ],
+        "gpu_layers": 20,
+        "context_length": 65536,
+        "requested_cache_ram": 8192,
+        "requested_ctx_checkpoints": 32
+      },
+      "native": {
+        "pid": 12968,
+        "model_file": "C:\\Users\\mizot\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\4ca720788d1e01f1bff70c033e0d0028fd02e502\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "device": null,
+        "gpu_layers": "20",
+        "cache_ram_mib": "8192",
+        "ctx_checkpoints": "32",
+        "context": "65536",
+        "cache_type_k": "f16",
+        "cache_type_v": "f16"
+      }
+    },
+    {
+      "requested_model": "qwen/qwen3.8-27b",
+      "response_model": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.8-27B-GGUF\\Qwen3.8-27B-Q4_K_M.gguf",
+      "output": "42",
+      "finish_reason": "stop",
+      "elapsed_ms": 31138.97,
+      "app": {
+        "identifier": "qwen/qwen3.8-27b",
+        "devices": "CUDA0",
+        "context": 65536,
+        "cache_ram_mib": 8192,
+        "idle": true
+      },
+      "native": {
+        "pid": 26332,
+        "model_file": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.8-27B-GGUF\\Qwen3.8-27B-Q4_K_M.gguf",
+        "device": "CUDA0",
+        "gpu_layers": "20",
+        "cache_ram_mib": "8192",
+        "ctx_checkpoints": "32",
+        "context": "65536",
+        "cache_type_k": "f16",
+        "cache_type_v": "f16"
+      }
+    },
+    {
+      "requested_model": "qwen/qwen3.5-9b",
+      "response_model": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf",
+      "output": "42",
+      "finish_reason": "stop",
+      "elapsed_ms": 18353.84,
+      "app": {
+        "identifier": "qwen/qwen3.5-9b",
+        "devices": "CUDA0",
+        "context": 65536,
+        "cache_ram_mib": 8192,
+        "idle": true
+      },
+      "native": {
+        "pid": 4896,
+        "model_file": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf",
+        "device": "CUDA0",
+        "gpu_layers": "999999",
+        "cache_ram_mib": "8192",
+        "ctx_checkpoints": "32",
+        "context": "65536",
+        "cache_type_k": "f16",
+        "cache_type_v": "f16"
+      }
+    }
+  ],
+  "runtime_files": {
+    "desktop_service.py": "ec8eccac5f38e86818d0e4ec4d1409a96220478b716cce8f6f45a2b0c80e66e7",
+    "shared_memory.py": "38842d423efdffa62664a1e01bbd095157686b7946ed6956e37c61c3cb5edc4c",
+    "context_unsloth.py": "90f9c2b407bc730dc724b77f0f0d2bffc43650e9c680c6d9f514713bb45f4cd4",
+    "thermal_unsloth.py": "a61c5afd4db85d21b4916ebb6a737c759fc1ceedb310f7ec92edfc227f3a169c",
+    "lmstudio_bridge.mjs": "93b7369df4760cab63be011b5b1f2406ea822c95dad5a37a79986521e8fc16ed",
+    "start-desktop-service.ps1": "345f990ecd2b5284cde2ff66a4fb2cf2fed484012d4921f5386bdd3cf04bba4e",
+    "import_desktop_history.py": "559b43ea8e088e2a9e78e5406af8b5cc7adff1752b7ed182dfd4ad25261e22a1"
+  },
+  "saved_unsloth": {
+    "C:\\Users\\mizot\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.5-9B-GGUF\\snapshots\\3885219b6810b007914f3a7950a8d1b469d598a5\\Qwen3.5-9B-UD-Q4_K_XL.gguf": {
+      "cache_ram": 8192,
+      "ctx_checkpoints": 32,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "max_seq_length": 65536
+    },
+    "unsloth/Qwen3.5-9B-GGUF:UD-Q4_K_XL": {
+      "cache_ram": 8192,
+      "ctx_checkpoints": 32,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "max_seq_length": 65536
+    },
+    "unsloth/Qwen3.5-9B-GGUF": {
+      "cache_ram": 8192,
+      "ctx_checkpoints": 32,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "max_seq_length": 65536
+    },
+    "C:\\Users\\mizot\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\4ca720788d1e01f1bff70c033e0d0028fd02e502\\Qwen3.8-27B-UD-Q4_K_XL.gguf": {
+      "cache_ram": 8192,
+      "ctx_checkpoints": 32,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "max_seq_length": 65536
+    },
+    "unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL": {
+      "cache_ram": 8192,
+      "ctx_checkpoints": 32,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "max_seq_length": 65536
+    },
+    "unsloth/Qwen3.8-27B-GGUF": {
+      "cache_ram": 8192,
+      "ctx_checkpoints": 32,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "max_seq_length": 65536
+    },
+    "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf": {
+      "cache_ram": 8192,
+      "ctx_checkpoints": 32,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "max_seq_length": 65536
+    },
+    "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.8-27B-GGUF\\Qwen3.8-27B-Q4_K_M.gguf": {
+      "cache_ram": 8192,
+      "ctx_checkpoints": 32,
+      "gpu_ids": [
+        1,
+        0
+      ],
+      "gpu_layers": 1024,
+      "max_seq_length": 65536
+    }
+  },
+  "service": {
+    "pid": 25396,
+    "port": 8877,
+    "process_alive": true,
+    "background_summaries": true,
+    "share_memory": true
+  },
+  "after_restore": {
+    "common_api": {
+      "status": "matched-fallback",
+      "hot": true
+    },
+    "engine": {
+      "identifier": "qwen/qwen3.5-9b",
+      "devices": "CUDA0",
+      "context": 65536,
+      "cache_ram_mib": 8192,
+      "idle": true
+    },
+    "native": {
+      "pid": 692,
+      "model_file": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf",
+      "device": "CUDA0",
+      "gpu_layers": "999999",
+      "cache_ram_mib": "8192",
+      "ctx_checkpoints": "32",
+      "context": "65536",
+      "cache_type_k": "f16",
+      "cache_type_v": "f16"
+    }
+  },
+  "primary_validation_after_restore": {
+    "verified_utc": "2026-10-11T05:18:13.444714+00:00",
+    "saved_unsloth": {
+      "C:\\Users\\mizot\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.5-9B-GGUF\\snapshots\\3885219b6810b007914f3a7950a8d1b469d598a5\\Qwen3.5-9B-UD-Q4_K_XL.gguf": {
+        "cache_ram": 8192,
+        "ctx_checkpoints": 32,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "max_seq_length": 65536
+      },
+      "unsloth/Qwen3.5-9B-GGUF:UD-Q4_K_XL": {
+        "cache_ram": 8192,
+        "ctx_checkpoints": 32,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "max_seq_length": 65536
+      },
+      "unsloth/Qwen3.5-9B-GGUF": {
+        "cache_ram": 8192,
+        "ctx_checkpoints": 32,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "max_seq_length": 65536
+      },
+      "C:\\Users\\mizot\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\4ca720788d1e01f1bff70c033e0d0028fd02e502\\Qwen3.8-27B-UD-Q4_K_XL.gguf": {
+        "cache_ram": 8192,
+        "ctx_checkpoints": 32,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "max_seq_length": 65536
+      },
+      "unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL": {
+        "cache_ram": 8192,
+        "ctx_checkpoints": 32,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "max_seq_length": 65536
+      },
+      "unsloth/Qwen3.8-27B-GGUF": {
+        "cache_ram": 8192,
+        "ctx_checkpoints": 32,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "max_seq_length": 65536
+      },
+      "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf": {
+        "cache_ram": 8192,
+        "ctx_checkpoints": 32,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "max_seq_length": 65536
+      },
+      "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.8-27B-GGUF\\Qwen3.8-27B-Q4_K_M.gguf": {
+        "cache_ram": 8192,
+        "ctx_checkpoints": 32,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "gpu_layers": 1024,
+        "max_seq_length": 65536
+      }
+    },
+    "runtime_files": {
+      "desktop_service.py": "ec8eccac5f38e86818d0e4ec4d1409a96220478b716cce8f6f45a2b0c80e66e7",
+      "shared_memory.py": "38842d423efdffa62664a1e01bbd095157686b7946ed6956e37c61c3cb5edc4c",
+      "context_unsloth.py": "90f9c2b407bc730dc724b77f0f0d2bffc43650e9c680c6d9f514713bb45f4cd4",
+      "thermal_unsloth.py": "a61c5afd4db85d21b4916ebb6a737c759fc1ceedb310f7ec92edfc227f3a169c",
+      "lmstudio_bridge.mjs": "93b7369df4760cab63be011b5b1f2406ea822c95dad5a37a79986521e8fc16ed",
+      "start-desktop-service.ps1": "345f990ecd2b5284cde2ff66a4fb2cf2fed484012d4921f5386bdd3cf04bba4e",
+      "import_desktop_history.py": "559b43ea8e088e2a9e78e5406af8b5cc7adff1752b7ed182dfd4ad25261e22a1"
+    },
+    "service": {
+      "pid": 47628,
+      "port": 8877,
+      "process_alive": true,
+      "ram_cache_mib": 8192,
+      "background_summaries": true,
+      "share_memory": true,
+      "return_temperature": 69,
+      "stable_seconds": 120,
+      "fallback_temperature": 78
+    },
+    "common_api": {
+      "status": "matched-fallback",
+      "hot": true
+    },
+    "native_before_start": {
+      "pid": 5508,
+      "model_file": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf",
+      "device": "CUDA0",
+      "gpu_layers": "999999",
+      "tensor_split": "1",
+      "split_mode": "none",
+      "cache_ram_mib": "8192",
+      "ctx_checkpoints": "32",
+      "context": "65536",
+      "cache_type_k": "f16",
+      "cache_type_v": "f16"
+    },
+    "native_after_start": {
+      "pid": 5508,
+      "model_file": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf",
+      "device": "CUDA0",
+      "gpu_layers": "999999",
+      "tensor_split": "1",
+      "split_mode": "none",
+      "cache_ram_mib": "8192",
+      "ctx_checkpoints": "32",
+      "context": "65536",
+      "cache_type_k": "f16",
+      "cache_type_v": "f16"
+    },
+    "thermal_workers": [
+      {
+        "pid": 47984,
+        "parent_pid": 47628,
+        "process_alive": true
+      }
+    ],
+    "saved_default_model": "qwen/qwen3.8-27b",
+    "config_hash_matches_manifest": true,
+    "selected_lmstudio_before_start": {
+      "identifier": "qwen/qwen3.5-9b",
+      "devices": "CUDA0",
+      "context": 65536,
+      "cache_ram_mib": 8192,
+      "idle": true
+    },
+    "selected_lmstudio_after_start": {
+      "identifier": "qwen/qwen3.5-9b",
+      "devices": "CUDA0",
+      "context": 65536,
+      "cache_ram_mib": 8192,
+      "idle": true
+    }
+  },
+  "index_validation": {
+    "verified_utc": "2026-10-11T05:17:36.301138+00:00",
+    "script_count": 39,
+    "unchanged_since_validation": true,
+    "validation": "outputs\\ram-cache\\stage-candidates\\isolated-index-1791693387289608400",
+    "python_tests": 72,
+    "node_tests": 1
+  }
+}

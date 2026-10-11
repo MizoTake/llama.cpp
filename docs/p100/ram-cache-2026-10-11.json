@@ -1,0 +1,523 @@
+{
+  "date": "2026-10-11",
+  "host": "DESKTOP-HL7S64S",
+  "cpu": "Ryzen 5 7600",
+  "ram_gib": 64,
+  "gpu": "RTX 4070 only; P100 idle to avoid thermal and placement changes",
+  "cache_limit_mib": 8192,
+  "context_length": 65536,
+  "checkpoints": 32,
+  "kv_type": "f16",
+  "sequence": [
+    "cold_a",
+    "divert_b",
+    "return_a",
+    "same_a"
+  ],
+  "prompt_tokens": 4846,
+  "request": {
+    "temperature": 0,
+    "seed": 1234,
+    "max_tokens": 16,
+    "enable_thinking": false
+  },
+  "results": [
+    {
+      "app_model": "Unsloth 9B",
+      "model_file": "Qwen3.5-9B-UD-Q4_K_XL.gguf",
+      "gpu_layers": 1024,
+      "rounds": 3,
+      "raw_reports": [
+        "unsloth-0-32.json",
+        "unsloth-8192.json"
+      ],
+      "stages": {
+        "cold_a": {
+          "off": {
+            "first_token_ms": 1482.79,
+            "total_ms": 1519.12,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 1549.64,
+            "total_ms": 1584.69,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "first_token_ratio": 0.96,
+          "reduction_percent": -4.51
+        },
+        "divert_b": {
+          "off": {
+            "first_token_ms": 1464.35,
+            "total_ms": 1498.68,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 1566.38,
+            "total_ms": 1601.41,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "first_token_ratio": 0.93,
+          "reduction_percent": -6.97
+        },
+        "return_a": {
+          "off": {
+            "first_token_ms": 1454.63,
+            "total_ms": 1490.1,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 158.54,
+            "total_ms": 194.75,
+            "cached_tokens": [
+              4842,
+              4842,
+              4842
+            ],
+            "processed_tokens": [
+              4,
+              4,
+              4
+            ]
+          },
+          "first_token_ratio": 9.18,
+          "reduction_percent": 89.1
+        },
+        "same_a": {
+          "off": {
+            "first_token_ms": 50.93,
+            "total_ms": 86.16,
+            "cached_tokens": [
+              4842,
+              4842,
+              4842
+            ],
+            "processed_tokens": [
+              4,
+              4,
+              4
+            ]
+          },
+          "on": {
+            "first_token_ms": 40.84,
+            "total_ms": 75.96,
+            "cached_tokens": [
+              4842,
+              4842,
+              4842
+            ],
+            "processed_tokens": [
+              4,
+              4,
+              4
+            ]
+          },
+          "first_token_ratio": 1.25,
+          "reduction_percent": 19.81
+        }
+      }
+    },
+    {
+      "app_model": "LM Studio 9B",
+      "model_file": "Qwen3.5-9B-Q4_K_M.gguf",
+      "gpu_layers": 999999,
+      "rounds": 3,
+      "raw_reports": [
+        "lmstudio-0.json",
+        "lmstudio-8192.json"
+      ],
+      "stages": {
+        "cold_a": {
+          "off": {
+            "first_token_ms": 1472.39,
+            "total_ms": 1506.55,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 1500.94,
+            "total_ms": 1534.47,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "first_token_ratio": 0.98,
+          "reduction_percent": -1.94
+        },
+        "divert_b": {
+          "off": {
+            "first_token_ms": 1458.05,
+            "total_ms": 1492.58,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 1521.56,
+            "total_ms": 1555.55,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "first_token_ratio": 0.96,
+          "reduction_percent": -4.36
+        },
+        "return_a": {
+          "off": {
+            "first_token_ms": 1474.27,
+            "total_ms": 1508.42,
+            "cached_tokens": [
+              0,
+              0,
+              0
+            ],
+            "processed_tokens": [
+              4846,
+              4846,
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 137.53,
+            "total_ms": 171.57,
+            "cached_tokens": [
+              4842,
+              4842,
+              4842
+            ],
+            "processed_tokens": [
+              4,
+              4,
+              4
+            ]
+          },
+          "first_token_ratio": 10.72,
+          "reduction_percent": 90.67
+        },
+        "same_a": {
+          "off": {
+            "first_token_ms": 58.31,
+            "total_ms": 91.79,
+            "cached_tokens": [
+              4842,
+              4842,
+              4842
+            ],
+            "processed_tokens": [
+              4,
+              4,
+              4
+            ]
+          },
+          "on": {
+            "first_token_ms": 41.33,
+            "total_ms": 75.09,
+            "cached_tokens": [
+              4842,
+              4842,
+              4842
+            ],
+            "processed_tokens": [
+              4,
+              4,
+              4
+            ]
+          },
+          "first_token_ratio": 1.41,
+          "reduction_percent": 29.12
+        }
+      }
+    },
+    {
+      "app_model": "Unsloth 27B",
+      "model_file": "Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "gpu_layers": 20,
+      "rounds": 1,
+      "raw_reports": [
+        "unsloth-27b-0-32.json",
+        "unsloth-27b-8192.json"
+      ],
+      "stages": {
+        "cold_a": {
+          "off": {
+            "first_token_ms": 12406.45,
+            "total_ms": 13148.69,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 12264.17,
+            "total_ms": 13018.98,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "first_token_ratio": 1.01,
+          "reduction_percent": 1.15
+        },
+        "divert_b": {
+          "off": {
+            "first_token_ms": 12278.06,
+            "total_ms": 12943.59,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 12638.79,
+            "total_ms": 13329.46,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "first_token_ratio": 0.97,
+          "reduction_percent": -2.94
+        },
+        "return_a": {
+          "off": {
+            "first_token_ms": 12317.35,
+            "total_ms": 13039.97,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 1107.32,
+            "total_ms": 1861.33,
+            "cached_tokens": [
+              4842
+            ],
+            "processed_tokens": [
+              4
+            ]
+          },
+          "first_token_ratio": 11.12,
+          "reduction_percent": 91.01
+        },
+        "same_a": {
+          "off": {
+            "first_token_ms": 768.53,
+            "total_ms": 1496.21,
+            "cached_tokens": [
+              4842
+            ],
+            "processed_tokens": [
+              4
+            ]
+          },
+          "on": {
+            "first_token_ms": 886.25,
+            "total_ms": 1636.18,
+            "cached_tokens": [
+              4842
+            ],
+            "processed_tokens": [
+              4
+            ]
+          },
+          "first_token_ratio": 0.87,
+          "reduction_percent": -15.32
+        }
+      }
+    },
+    {
+      "app_model": "LM Studio 27B",
+      "model_file": "Qwen3.8-27B-Q4_K_M.gguf",
+      "gpu_layers": 20,
+      "rounds": 1,
+      "raw_reports": [
+        "lmstudio-27b-0.json",
+        "lmstudio-27b-8192.json"
+      ],
+      "stages": {
+        "cold_a": {
+          "off": {
+            "first_token_ms": 18490.89,
+            "total_ms": 19232.92,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 18477.02,
+            "total_ms": 19215.14,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "first_token_ratio": 1.0,
+          "reduction_percent": 0.08
+        },
+        "divert_b": {
+          "off": {
+            "first_token_ms": 18694.85,
+            "total_ms": 19482.91,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 18864.04,
+            "total_ms": 19696.65,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "first_token_ratio": 0.99,
+          "reduction_percent": -0.91
+        },
+        "return_a": {
+          "off": {
+            "first_token_ms": 18763.19,
+            "total_ms": 19500.35,
+            "cached_tokens": [
+              0
+            ],
+            "processed_tokens": [
+              4846
+            ]
+          },
+          "on": {
+            "first_token_ms": 1167.91,
+            "total_ms": 1928.49,
+            "cached_tokens": [
+              4842
+            ],
+            "processed_tokens": [
+              4
+            ]
+          },
+          "first_token_ratio": 16.07,
+          "reduction_percent": 93.78
+        },
+        "same_a": {
+          "off": {
+            "first_token_ms": 789.68,
+            "total_ms": 1514.95,
+            "cached_tokens": [
+              4842
+            ],
+            "processed_tokens": [
+              4
+            ]
+          },
+          "on": {
+            "first_token_ms": 772.91,
+            "total_ms": 1471.51,
+            "cached_tokens": [
+              4842
+            ],
+            "processed_tokens": [
+              4
+            ]
+          },
+          "first_token_ratio": 1.02,
+          "reduction_percent": 2.12
+        }
+      }
+    }
+  ],
+  "verified_responses": 64
+}

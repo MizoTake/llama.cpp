@@ -1,0 +1,854 @@
+{
+  "date": "2026-10-11",
+  "host": "DESKTOP-HL7S64S",
+  "gpu_profile": "P100-first dual GPU, layer split 3:2",
+  "cache_limits_mib": [
+    0,
+    8192
+  ],
+  "checkpoints": 32,
+  "request": {
+    "temperature": 0,
+    "seed": 1234,
+    "max_tokens": 16,
+    "enable_thinking": false
+  },
+  "sequence": [
+    "cold_a",
+    "divert_b",
+    "return_a",
+    "same_a"
+  ],
+  "telemetry": "P100 sample before/after each request and every 1 second during longer requests; thermal counter checked within every request",
+  "source_directory": "outputs/ram-cache",
+  "sources": [
+    {
+      "file": "primary-unsloth-9b-0-short.json",
+      "sha256": "e9c1b242b45847c3e4a908575d15256a73afbac2331e1830b0ab84c845884566",
+      "cases": 4
+    },
+    {
+      "file": "primary-unsloth-9b-8192-short.json",
+      "sha256": "0b91bc64824e0af7b689ea0d3619456db6374aa8db663d2540054b682d0d447f",
+      "cases": 4
+    },
+    {
+      "file": "primary-unsloth-27b-0-short.json",
+      "sha256": "e423f9d75a896a2c60057ff511dc8250c7c80b00ae9f670a9da258a3eaf28177",
+      "cases": 4
+    },
+    {
+      "file": "primary-unsloth-27b-8192-short.json",
+      "sha256": "620d70062c6cb95360dbb7cb85a09cc6a6fc14aa96ab4fc95fc49f69e2702b6c",
+      "cases": 4
+    },
+    {
+      "file": "primary-lmstudio-9b-0-short.json",
+      "sha256": "8b7b38325e382b5109b6f81fad16fe083cc4a782858e64314f319e8e63038c57",
+      "cases": 4
+    },
+    {
+      "file": "primary-lmstudio-9b-8192-short.json",
+      "sha256": "e3ab1bf5e6dcb95565f9c80229e3279e6d0751468b6892461ed3e098860917e0",
+      "cases": 4
+    },
+    {
+      "file": "primary-lmstudio-27b-0-short.json",
+      "sha256": "d3a51ab98ebfa8d4f7257b03005d187441e1cb90868d5f2ca73a539fb8261d77",
+      "cases": 4
+    },
+    {
+      "file": "primary-lmstudio-27b-8192-short.json",
+      "sha256": "f9b9b9e124f2b886299275503993ad91df2e2760cf57e82ae83ea088b781d396",
+      "cases": 4
+    }
+  ],
+  "verified_responses": 32,
+  "results": [
+    {
+      "app": "unsloth",
+      "model_size": "9b",
+      "app_model": "Unsloth 9B",
+      "native": {
+        "model_file": "C:\\Users\\mizot\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.5-9B-GGUF\\snapshots\\3885219b6810b007914f3a7950a8d1b469d598a5\\Qwen3.5-9B-UD-Q4_K_XL.gguf",
+        "context": "65536",
+        "cache_type_k": "f16",
+        "cache_type_v": "f16",
+        "gpu_layers": "1024",
+        "device": null,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "tensor_split": "3,2",
+        "split_mode": "layer",
+        "ctx_checkpoints": "32",
+        "slots": 1
+      },
+      "reference_rows": 16,
+      "prompt_tokens_each_round": [
+        329
+      ],
+      "rounds": 1,
+      "cool_temperature": 77,
+      "initial_cool_temperature": 69,
+      "stages": {
+        "cold_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 807.96,
+            "first_token_ms_each": [
+              807.96
+            ],
+            "total_ms_value": 865.43,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 762.95,
+            "first_token_ms_each": [
+              762.95
+            ],
+            "total_ms_value": 821.36,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "first_token_speed_ratio": 1.059,
+          "first_token_reduction_percent": 5.57
+        },
+        "divert_b": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 649.52,
+            "first_token_ms_each": [
+              649.52
+            ],
+            "total_ms_value": 701.06,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 682.85,
+            "first_token_ms_each": [
+              682.85
+            ],
+            "total_ms_value": 733.48,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "first_token_speed_ratio": 0.951,
+          "first_token_reduction_percent": -5.13
+        },
+        "return_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 648.12,
+            "first_token_ms_each": [
+              648.12
+            ],
+            "total_ms_value": 699.18,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 127.16,
+            "first_token_ms_each": [
+              127.16
+            ],
+            "total_ms_value": 178.78,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "first_token_speed_ratio": 5.097,
+          "first_token_reduction_percent": 80.38
+        },
+        "same_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 97.45,
+            "first_token_ms_each": [
+              97.45
+            ],
+            "total_ms_value": 149.14,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 96.37,
+            "first_token_ms_each": [
+              96.37
+            ],
+            "total_ms_value": 147.79,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "first_token_speed_ratio": 1.011,
+          "first_token_reduction_percent": 1.11
+        }
+      },
+      "thermal": {
+        "off": {
+          "sample_count": 8,
+          "temperature_range_c": [
+            70,
+            73
+          ],
+          "sm_clock_range_mhz": [
+            1189,
+            1328
+          ],
+          "thermal_counter_range": [
+            21612016101,
+            21612016101
+          ],
+          "thermal_counter_delta_during_every_request": 0,
+          "unthrottled_cases": 4
+        },
+        "on": {
+          "sample_count": 8,
+          "temperature_range_c": [
+            70,
+            73
+          ],
+          "sm_clock_range_mhz": [
+            1189,
+            1328
+          ],
+          "thermal_counter_range": [
+            21612016101,
+            21612016101
+          ],
+          "thermal_counter_delta_during_every_request": 0,
+          "unthrottled_cases": 4
+        }
+      }
+    },
+    {
+      "app": "unsloth",
+      "model_size": "27b",
+      "app_model": "Unsloth 27B",
+      "native": {
+        "model_file": "C:\\Users\\mizot\\.cache\\huggingface\\hub\\models--unsloth--Qwen3.8-27B-GGUF\\snapshots\\4ca720788d1e01f1bff70c033e0d0028fd02e502\\Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "context": "65536",
+        "cache_type_k": "f16",
+        "cache_type_v": "f16",
+        "gpu_layers": "1024",
+        "device": null,
+        "gpu_ids": [
+          1,
+          0
+        ],
+        "tensor_split": "3,2",
+        "split_mode": "layer",
+        "ctx_checkpoints": "32",
+        "slots": 1
+      },
+      "reference_rows": 16,
+      "prompt_tokens_each_round": [
+        329
+      ],
+      "rounds": 1,
+      "cool_temperature": 77,
+      "initial_cool_temperature": 67,
+      "stages": {
+        "cold_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2273.59,
+            "first_token_ms_each": [
+              2273.59
+            ],
+            "total_ms_value": 2387.09,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2317.75,
+            "first_token_ms_each": [
+              2317.75
+            ],
+            "total_ms_value": 2435.22,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "first_token_speed_ratio": 0.981,
+          "first_token_reduction_percent": -1.94
+        },
+        "divert_b": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2201.46,
+            "first_token_ms_each": [
+              2201.46
+            ],
+            "total_ms_value": 2299.62,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2296.27,
+            "first_token_ms_each": [
+              2296.27
+            ],
+            "total_ms_value": 2397.37,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "first_token_speed_ratio": 0.959,
+          "first_token_reduction_percent": -4.31
+        },
+        "return_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2187.32,
+            "first_token_ms_each": [
+              2187.32
+            ],
+            "total_ms_value": 2287.22,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 406.51,
+            "first_token_ms_each": [
+              406.51
+            ],
+            "total_ms_value": 509.64,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "first_token_speed_ratio": 5.381,
+          "first_token_reduction_percent": 81.42
+        },
+        "same_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 216.88,
+            "first_token_ms_each": [
+              216.88
+            ],
+            "total_ms_value": 318.38,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 204.3,
+            "first_token_ms_each": [
+              204.3
+            ],
+            "total_ms_value": 305.86,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "first_token_speed_ratio": 1.062,
+          "first_token_reduction_percent": 5.8
+        }
+      },
+      "thermal": {
+        "off": {
+          "sample_count": 14,
+          "temperature_range_c": [
+            68,
+            76
+          ],
+          "sm_clock_range_mhz": [
+            1189,
+            1328
+          ],
+          "thermal_counter_range": [
+            21612016101,
+            21612016101
+          ],
+          "thermal_counter_delta_during_every_request": 0,
+          "unthrottled_cases": 4
+        },
+        "on": {
+          "sample_count": 12,
+          "temperature_range_c": [
+            68,
+            74
+          ],
+          "sm_clock_range_mhz": [
+            1189,
+            1328
+          ],
+          "thermal_counter_range": [
+            21612016101,
+            21612016101
+          ],
+          "thermal_counter_delta_during_every_request": 0,
+          "unthrottled_cases": 4
+        }
+      }
+    },
+    {
+      "app": "lmstudio",
+      "model_size": "9b",
+      "app_model": "LM Studio 9B",
+      "native": {
+        "model_file": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf",
+        "context": "131072",
+        "cache_type_k": "f16",
+        "cache_type_v": "f16",
+        "gpu_layers": "999999",
+        "device": "CUDA1,CUDA0",
+        "gpu_ids": null,
+        "tensor_split": "3,2",
+        "split_mode": "layer",
+        "ctx_checkpoints": "32",
+        "slots": 1
+      },
+      "reference_rows": 16,
+      "prompt_tokens_each_round": [
+        329
+      ],
+      "rounds": 1,
+      "cool_temperature": 77,
+      "initial_cool_temperature": 69,
+      "stages": {
+        "cold_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 801.14,
+            "first_token_ms_each": [
+              801.14
+            ],
+            "total_ms_value": 859.27,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 731.97,
+            "first_token_ms_each": [
+              731.97
+            ],
+            "total_ms_value": 786.26,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "first_token_speed_ratio": 1.094,
+          "first_token_reduction_percent": 8.63
+        },
+        "divert_b": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 683.24,
+            "first_token_ms_each": [
+              683.24
+            ],
+            "total_ms_value": 734.08,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 696.56,
+            "first_token_ms_each": [
+              696.56
+            ],
+            "total_ms_value": 746.11,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "first_token_speed_ratio": 0.981,
+          "first_token_reduction_percent": -1.95
+        },
+        "return_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 660.54,
+            "first_token_ms_each": [
+              660.54
+            ],
+            "total_ms_value": 712.04,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 132.07,
+            "first_token_ms_each": [
+              132.07
+            ],
+            "total_ms_value": 182.48,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "first_token_speed_ratio": 5.001,
+          "first_token_reduction_percent": 80.01
+        },
+        "same_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 99.22,
+            "first_token_ms_each": [
+              99.22
+            ],
+            "total_ms_value": 153.16,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 76.1,
+            "first_token_ms_each": [
+              76.1
+            ],
+            "total_ms_value": 129.32,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "first_token_speed_ratio": 1.304,
+          "first_token_reduction_percent": 23.3
+        }
+      },
+      "thermal": {
+        "off": {
+          "sample_count": 8,
+          "temperature_range_c": [
+            70,
+            73
+          ],
+          "sm_clock_range_mhz": [
+            1189,
+            1328
+          ],
+          "thermal_counter_range": [
+            21612016101,
+            21612016101
+          ],
+          "thermal_counter_delta_during_every_request": 0,
+          "unthrottled_cases": 4
+        },
+        "on": {
+          "sample_count": 8,
+          "temperature_range_c": [
+            70,
+            72
+          ],
+          "sm_clock_range_mhz": [
+            1189,
+            1328
+          ],
+          "thermal_counter_range": [
+            21612016101,
+            21612016101
+          ],
+          "thermal_counter_delta_during_every_request": 0,
+          "unthrottled_cases": 4
+        }
+      }
+    },
+    {
+      "app": "lmstudio",
+      "model_size": "27b",
+      "app_model": "LM Studio 27B",
+      "native": {
+        "model_file": "C:\\Users\\mizot\\.lmstudio\\models\\lmstudio-community\\Qwen3.8-27B-GGUF\\Qwen3.8-27B-Q4_K_M.gguf",
+        "context": "65536",
+        "cache_type_k": "f16",
+        "cache_type_v": "f16",
+        "gpu_layers": "999999",
+        "device": "CUDA1,CUDA0",
+        "gpu_ids": null,
+        "tensor_split": "3,2",
+        "split_mode": "layer",
+        "ctx_checkpoints": "32",
+        "slots": 1
+      },
+      "reference_rows": 16,
+      "prompt_tokens_each_round": [
+        329
+      ],
+      "rounds": 1,
+      "cool_temperature": 77,
+      "initial_cool_temperature": 67,
+      "stages": {
+        "cold_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2297.86,
+            "first_token_ms_each": [
+              2297.86
+            ],
+            "total_ms_value": 2435.53,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2275.76,
+            "first_token_ms_each": [
+              2275.76
+            ],
+            "total_ms_value": 2409.0,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "first_token_speed_ratio": 1.01,
+          "first_token_reduction_percent": 0.96
+        },
+        "divert_b": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2221.62,
+            "first_token_ms_each": [
+              2221.62
+            ],
+            "total_ms_value": 2342.07,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2348.07,
+            "first_token_ms_each": [
+              2348.07
+            ],
+            "total_ms_value": 2467.57,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "first_token_speed_ratio": 0.946,
+          "first_token_reduction_percent": -5.69
+        },
+        "return_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 2218.92,
+            "first_token_ms_each": [
+              2218.92
+            ],
+            "total_ms_value": 2339.29,
+            "cached_tokens_each": [
+              0
+            ],
+            "processed_tokens_each": [
+              329
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 421.37,
+            "first_token_ms_each": [
+              421.37
+            ],
+            "total_ms_value": 543.46,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "first_token_speed_ratio": 5.266,
+          "first_token_reduction_percent": 81.01
+        },
+        "same_a": {
+          "off": {
+            "value_kind": "observation",
+            "first_token_ms_value": 208.92,
+            "first_token_ms_each": [
+              208.92
+            ],
+            "total_ms_value": 333.34,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "on": {
+            "value_kind": "observation",
+            "first_token_ms_value": 209.96,
+            "first_token_ms_each": [
+              209.96
+            ],
+            "total_ms_value": 333.15,
+            "cached_tokens_each": [
+              325
+            ],
+            "processed_tokens_each": [
+              4
+            ]
+          },
+          "first_token_speed_ratio": 0.995,
+          "first_token_reduction_percent": -0.5
+        }
+      },
+      "thermal": {
+        "off": {
+          "sample_count": 11,
+          "temperature_range_c": [
+            68,
+            76
+          ],
+          "sm_clock_range_mhz": [
+            1189,
+            1328
+          ],
+          "thermal_counter_range": [
+            21612016101,
+            21612016101
+          ],
+          "thermal_counter_delta_during_every_request": 0,
+          "unthrottled_cases": 4
+        },
+        "on": {
+          "sample_count": 11,
+          "temperature_range_c": [
+            68,
+            75
+          ],
+          "sm_clock_range_mhz": [
+            1189,
+            1328
+          ],
+          "thermal_counter_range": [
+            21612016101,
+            21612016101
+          ],
+          "thermal_counter_delta_during_every_request": 0,
+          "unthrottled_cases": 4
+        }
+      }
+    }
+  ],
+  "after_restore": {
+    "record": "ram-cache-live-2026-10-11.json:primary_validation_after_restore",
+    "verified_utc": "2026-10-11T05:18:13.444714+00:00",
+    "common_api": {
+      "status": "matched-fallback",
+      "hot": true
+    },
+    "selected_lmstudio": {
+      "identifier": "qwen/qwen3.5-9b",
+      "devices": "CUDA0",
+      "context": 65536,
+      "cache_ram_mib": 8192,
+      "idle": true
+    }
+  }
+}
